@@ -18,7 +18,7 @@ GENERIC_SENSORS = {
 }
 
 GENERIC_FANS = {
-    "set_vent_v1": ["Fan 1", "mdi:fan", {"0", "1", "2", "3", "4", "5", "6"}, 1, "Fan", True, EntityCategory.CONFIG]
+    # "set_vent_v1": ["Fan 1", "mdi:fan", {"0", "1", "2", "3", "4", "5", "6"}, 1, "Fan", True, EntityCategory.CONFIG]
 }
 
 models = {
@@ -33,6 +33,28 @@ models = {
             **GENERIC_FANS,
             **{
                 # "set_vent_v1": ["Fan 1", ["0", "1", "2", "3", "4", "5", "6"], 1, "Fan"]
+            }
+        },
+        "switch": {
+            **{
+                "crono_enabled": ["Chrono", "mdi:timer", True, EntityCategory.CONFIG, "EnableChrono", "DisableChrono"],
+                "att_eco": ["Start / Stop", "mdi:timer", True, EntityCategory.CONFIG, "EnableSS", "DisableSS"],
+            }
+        },
+        "select": {
+            **{
+                "set_pot_man": ["Pot", "mdi:pot", True, EntityCategory.CONFIG, ["1", "2", "3", "4", "5"], "Pot"],
+                "set_vent_v1": ["Fan 1", "mdi:fan", True, EntityCategory.CONFIG, ["0", "1", "2", "3", "4", "5", "6"], "Fan"],
+            }
+        },
+        "binary_sensor": {
+            **{
+                "is_in_error": ["Error", "mdi:alert", True, EntityCategory.DIAGNOSTIC]
+            }
+        },
+        "button": {
+            **{
+                "reset_alarm": ["Error Reset", "mdi:alert", True, EntityCategory.DIAGNOSTIC, "ResetErrors"]
             }
         }
     },

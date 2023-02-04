@@ -195,3 +195,10 @@ class MaestroStove:
         command = [{"SensorId": "f7750f3e-9ff2-4351-b53a-6d1a9d1f6bc6", "Value": pot}]
         body = RequestBuilder(self, ConfigurationId=configurationid, Commands=command)
         await self._controller.MakeRequest("POST", url=url, body=body)
+
+    async def ResetErrors(self):
+        url = f"https://s.maestro.mcz.it/mcz/v1.0/Program/ActivateProgram/{self.Id}"
+        configurationid = "aa5b4a86-fa53-4468-a106-1d3c8cd58f4c"
+        command = [{"SensorId": "ff7ce277-1d40-4d74-a232-96c7584afc60", "Value": True}]
+        body = RequestBuilder(self, ConfigurationId=configurationid, Commands=command)
+        await self._controller.MakeRequest("POST", url=url, body=body)

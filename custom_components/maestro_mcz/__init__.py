@@ -13,7 +13,7 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from .const import DOMAIN
 from .maestro import MaestroController, MaestroStove
 
-PLATFORMS: list[Platform] = [Platform.CLIMATE, Platform.SENSOR, Platform.FAN]
+PLATFORMS: list[Platform] = [Platform.CLIMATE, Platform.SENSOR, Platform.FAN, Platform.SWITCH, Platform.SELECT, Platform.BINARY_SENSOR, Platform.BUTTON]
 _LOGGER = logging.getLogger(__name__)
 
 
